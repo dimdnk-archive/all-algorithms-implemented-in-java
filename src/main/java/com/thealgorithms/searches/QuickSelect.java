@@ -1,12 +1,17 @@
 package com.thealgorithms.searches;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * An implementation of the Quickselect algorithm as described
  * <a href="https://en.wikipedia.org/wiki/Median_of_medians">here</a>.
  */
 public final class QuickSelect {
+    private QuickSelect() {
+    }
 
     /**
      * Selects the {@code n}-th largest element of {@code list}, i.e. the element that would
@@ -51,7 +56,9 @@ public final class QuickSelect {
 
     private static <T extends Comparable<T>> int selectIndex(List<T> list, int left, int right, int n) {
         while (true) {
-            if (left == right) return left;
+            if (left == right) {
+                return left;
+            }
             int pivotIndex = pivot(list, left, right);
             pivotIndex = partition(list, left, right, pivotIndex, n);
             if (n == pivotIndex) {

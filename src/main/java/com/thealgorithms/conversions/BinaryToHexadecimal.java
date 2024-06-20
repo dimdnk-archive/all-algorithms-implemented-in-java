@@ -1,13 +1,16 @@
 package com.thealgorithms.conversions;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  * Converts any Binary Number to a Hexadecimal Number
  *
  * @author Nishita Aggarwal
  */
-public class BinaryToHexadecimal {
+public final class BinaryToHexadecimal {
+    private BinaryToHexadecimal() {
+    }
 
     /**
      * This method converts a binary number to a hexadecimal number.
@@ -34,7 +37,7 @@ public class BinaryToHexadecimal {
             for (i = 0; i < 4; i++) {
                 currbit = binary % 10;
                 binary = binary / 10;
-                code4 += currbit * Math.pow(2, i);
+                code4 += currbit * (int) Math.pow(2, i);
             }
             hex = hm.get(code4) + hex;
         }
